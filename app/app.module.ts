@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { DrawerComponent } from "./shared/drawer/drawer.component";
 import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 
@@ -21,6 +22,7 @@ import { DishService } from './services/dish.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
 import { baseURL } from './shared/baseurl';
+import { AboutComponent } from "./about/about.component";
 
 @NgModule({
     bootstrap: [
@@ -37,7 +39,9 @@ import { baseURL } from './shared/baseurl';
         MenuComponent,
         DishdetailComponent,
         DrawerComponent,
-        HomeComponent
+        HomeComponent,
+        ContactComponent,
+        AboutComponent
     ],
     providers: [
         {provide: 'BaseURL', useValue: baseURL},
