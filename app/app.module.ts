@@ -2,6 +2,8 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptUISideDrawerModule } from "nativescript-telerik-ui/sidedrawer/angular";
+import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
+
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { MenuComponent } from './menu/menu.component';
@@ -32,7 +34,10 @@ import { AboutComponent } from "./about/about.component";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptHttpModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        TNSFontIconModule.forRoot({
+            'fa': './fonts/font-awesome.min.css'
+        })
     ],
     declarations: [
         AppComponent,
