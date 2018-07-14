@@ -4,6 +4,7 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { MenuComponent } from './menu/menu.component';
+import { DishdetailComponent } from './dishdetail/dishdetail.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -27,7 +28,8 @@ import { baseURL } from './shared/baseurl';
     ],
     declarations: [
         AppComponent,
-        MenuComponent
+        MenuComponent,
+        DishdetailComponent
     ],
     providers: [
         {provide: 'BaseURL', useValue: baseURL},
