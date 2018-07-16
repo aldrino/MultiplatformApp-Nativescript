@@ -8,6 +8,8 @@ import { DrawerPage } from '../shared/drawer/drawer.page';
 import { View } from 'ui/core/view';
 import { confirm } from "ui/dialogs";
 import { Toasty } from 'nativescript-toasty';
+import * as app from "application";
+import { RadSideDrawer } from 'nativescript-telerik-ui/sidedrawer';
 
 @Component({
     selector: 'app-favorites',
@@ -101,5 +103,10 @@ export class FavoritesComponent extends DrawerPage implements OnInit {
     public onRightSwipeClick(args: ListViewEventData) {
         this.deleteFavorite(args.object.bindingContext.id);
         this.listViewComponent.listView.notifySwipeToExecuteFinished();
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

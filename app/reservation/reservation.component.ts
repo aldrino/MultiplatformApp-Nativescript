@@ -5,6 +5,8 @@ import { Switch } from 'ui/switch';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { ReservationModalComponent } from "../reservationmodal/reservationmodal.component";
+import * as app from "application";
+import { RadSideDrawer } from 'nativescript-telerik-ui/sidedrawer';
 
 @Component({
     selector: 'app-reservation',
@@ -75,6 +77,10 @@ export class ReservationComponent extends DrawerPage implements OnInit {
                     this.reservation.patchValue({ dateTime: result });
                 }
             });
+    }
 
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

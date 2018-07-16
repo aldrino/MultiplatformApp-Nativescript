@@ -12,6 +12,8 @@ import { Page } from "ui/page";
 import { View } from "ui/core/view";
 import { SwipeGestureEventData, SwipeDirection } from "ui/gestures";
 import * as enums from "ui/enums";
+import * as app from "application";
+import { RadSideDrawer } from 'nativescript-telerik-ui/sidedrawer';
 
 @Component({
     selector: 'app-home',
@@ -216,5 +218,10 @@ export class HomeComponent extends DrawerPage implements OnInit {
         }
     }
 
+    onDrawerButtonTap(): void {
+        console.log('999999');
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
+    }
 
 }

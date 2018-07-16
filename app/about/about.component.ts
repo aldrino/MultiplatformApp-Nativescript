@@ -2,6 +2,8 @@ import { Component, OnInit, Inject, ChangeDetectorRef } from '@angular/core';
 import { DrawerPage } from '../shared/drawer/drawer.page';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
+import * as app from "application";
+import { RadSideDrawer } from 'nativescript-telerik-ui/sidedrawer';
 
 @Component({
     selector: 'app-about',
@@ -23,6 +25,11 @@ export class AboutComponent extends DrawerPage implements OnInit {
         this.leaderService.getLeaders()
             .subscribe(leaders => this.leaders = leaders,
                 errmess => this.errMess = <any>errmess);
+    }
+
+    onDrawerButtonTap(): void {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 
 }
