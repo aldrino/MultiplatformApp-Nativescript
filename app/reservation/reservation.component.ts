@@ -23,6 +23,7 @@ export class ReservationComponent extends DrawerPage implements OnInit {
     reservation: FormGroup;
     reservations: Array<Object>;
     docId: string = "reservations";
+    reservationSubmit: boolean;
     formLayout: View;
     formDisp: View;
 
@@ -48,6 +49,7 @@ export class ReservationComponent extends DrawerPage implements OnInit {
         else {
             this.reservations = doc.reservations;
         }
+        console.log(this.reservations);
     }
 
     ngOnInit() {
@@ -75,38 +77,27 @@ export class ReservationComponent extends DrawerPage implements OnInit {
     }
 
     onSubmit() {
-        this.reservations.push(this.reservation.value);
-        // Update Couchbase light
-        this.couchbaseService.updateDocument(this.docId, { "reservations": this.reservations });
-
         // Animations
         this.formLayout = <View>this.page.getViewById<View>("formLayout");
         this.formDisp = <View>this.page.getViewById<View>("formDisp");
-        let definitions = new Array<AnimationDefinition>();
-        let a1: AnimationDefinition = {
-            target: this.formLayout,
+        this.formLayout.animate({
             scale: { x: 0, y: 0 },
             opacity: 0,
             duration: 500,
-            curve: enums.AnimationCurve.easeIn
-        };
-        definitions.push(a1);
-        let animationSet = new Animation(definitions);
-        animationSet.play().then(() => {
-            let definitions = new Array<AnimationDefinition>();
-            let a1: AnimationDefinition = {
-                target: this.formDisp,
-                scale: { x: 0, y: 0 },
-                opacity: 0,
+            curve: enums.AnimationCurve.easeOut
+        }).then(() => {
+            this.reservations.push(this.reservation.value);
+            // Update Couchbase lite
+            this.couchbaseService.updateDocument(this.docId, { "reservations": this.reservations });    
+            this.formDisp.animate({
+                scale: { x: 1, y: 1 },
+                opacity: 1,
                 duration: 500,
                 curve: enums.AnimationCurve.easeIn
-            };
-            definitions.push(a1);
-            let animationSet = new Animation(definitions);
-            animationSet.play();
-        }).catch((e) => {
-            console.log(e.message);
-        });
+            }).then(() => {
+                this.reservationSubmit = true;
+            })
+        })
     }
 
     createModalView(args) {
