@@ -33,6 +33,7 @@ import { AboutComponent } from "./about/about.component";
 import { FavoritesComponent } from "~/favorites/favorites.component";
 import { ReservationComponent } from './reservation/reservation.component';
 import { CommentComponent } from "~/comment/comment.component";
+import { UserAuthComponent } from "./userauth/userauth.component"; 
 
 @NgModule({
     bootstrap: [
@@ -61,7 +62,8 @@ import { CommentComponent } from "~/comment/comment.component";
         FavoritesComponent,
         ReservationComponent,
         ReservationModalComponent,
-        CommentComponent
+        CommentComponent,
+        UserAuthComponent
     ],
     entryComponents: [ReservationModalComponent, CommentComponent],
     providers: [
