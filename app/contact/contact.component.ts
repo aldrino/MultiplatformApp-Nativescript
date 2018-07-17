@@ -4,6 +4,7 @@ import * as app from "application";
 import { RadSideDrawer } from 'nativescript-telerik-ui/sidedrawer';
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import * as Email from 'nativescript-email';
+import * as TNSPhone from 'nativescript-phone';
 
 @Component({
     selector: 'app-contact',
@@ -39,5 +40,9 @@ export class ContactComponent extends DrawerPage implements OnInit {
                 else
                     console.log('No Email Configured');
             })
+    }
+
+    callRestaurant() {
+        TNSPhone.dial('+85212345678', true);
     }
 }
