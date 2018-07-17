@@ -34,6 +34,7 @@ import { FavoritesComponent } from "~/favorites/favorites.component";
 import { ReservationComponent } from './reservation/reservation.component';
 import { CommentComponent } from "~/comment/comment.component";
 import { UserAuthComponent } from "./userauth/userauth.component"; 
+import { PlatformService } from './services/platform.service';
 
 @NgModule({
     bootstrap: [
@@ -73,7 +74,8 @@ import { UserAuthComponent } from "./userauth/userauth.component";
         LeaderService,
         FavoriteService,
         ProcessHTTPMsgService,
-        CouchbaseService
+        CouchbaseService,
+        PlatformService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
