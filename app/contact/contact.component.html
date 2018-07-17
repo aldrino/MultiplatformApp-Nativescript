@@ -9,8 +9,7 @@
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
     -->
-    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
     </ActionItem>
 </ActionBar>
 <RadSideDrawer #drawerComponent tkToggleNavButton showOverNavigation="true">
@@ -32,6 +31,11 @@
                     <Label class="body m-r-10" text="Email:confusion@food.net" textWrap="true"></Label>
                 </StackLayout>
             </StackLayout>
+            <GridLayout row="1" orientation="horizontal" rows="*" columns="*, *" class="m-t-20">
+                <Button row="0" col="0" [text]="('fa-phone' | fonticon) + ' Call'" class="btn btn-rounded-sm btn-outline no-border fa "></Button>
+                <Button row="0" col="1" [text]="('fa-envelope-o' | fonticon) + ' Email'" class="btn btn-rounded-sm btn-outline no-border fa"
+                    (tap)="sendEmail()"></Button>
+            </GridLayout>
         </GridLayout>
     </ScrollView>
 </RadSideDrawer>
